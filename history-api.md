@@ -29,6 +29,8 @@ Agents must always check `success` before reading the data fields.
 
 Closed trades only. Server caps `limit` at **20**. The `limit` path segment is optional, but agents should always supply it — when omitted, server behavior is undefined.
 
+`page` is **1-indexed** (the first page is `1`, not `0`). The same convention applies to `/v2/history/portfolio/all/...` below.
+
 Filter (server-side): events `MarketExecuted` / `LimitExecuted` with `event.args.open === false` **or** `event.args.orderType < 3`, and the trader matches.
 
 ```json
